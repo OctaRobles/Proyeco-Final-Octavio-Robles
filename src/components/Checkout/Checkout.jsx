@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { cartContext } from "../../context/cartContext";
 import { createOrder } from "../../services/firebase";
 import { useContext, useState } from "react";
+import "./Checkout.css"
 
 function Checkout() {
   const [buyer, setBuyer] = useState({
@@ -34,7 +35,6 @@ function Checkout() {
   function onInputChange(evt) {
     const value = evt.target.value;
     const field = evt.target.name;
-    //buyer["firstname"] -> buyer.firstname
     const newState = { ...buyer };
     newState[field] = value;
     setBuyer(newState);
@@ -50,9 +50,9 @@ function Checkout() {
   }
 
   return (
-    <form>
-      <h2>Completa tus datos para completar la compra🛍</h2>
-
+    <form >
+      <h2>Completa tus datos para completar la comprar</h2>
+<div className="form">
       <div style={{ display: "flex", marginBottom: 8 }}>
         <label htmlFor="lastname" style={{ width: "100px", marginRight: 4 }}>
           Nombre
@@ -86,8 +86,8 @@ function Checkout() {
           onChange={onInputChange}
         />
       </div>
-
-      <button
+      </div>
+      <button className="bton"
         disabled={
           !(buyer.firstname !== "" && buyer.lastname !== "" && buyer.age !== "")
         }
@@ -95,7 +95,7 @@ function Checkout() {
       >
         Confirmar Compra
       </button>
-      <button onClick={resetForm}>Cancelar</button>
+      <button className="bton" onClick={resetForm}>Cancelar</button>
     </form>
   );
 }

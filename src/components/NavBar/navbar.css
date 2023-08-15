@@ -1,22 +1,27 @@
 .nav-menu {
   max-width: 100vw;
   list-style: none;
+  font-family: 'Merriweather', serif;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items:center;
   width: 100%;
   margin: 0;
   height: 90px;
-  background-color: rgb(233, 244, 75);
+  background-color: rgb(159, 139, 230);
   top: 0;
   margin-bottom: 45px;
+  
+  border-radius: 5% / 100%;
 }
+
+
 
 .nav-link {
   text-decoration: none;
   font-weight: 400;
   font-size: 1.15em;
-  color: rgb(59, 59, 50);
+  color: rgb(27, 1, 51);
 }
 
 .nav-link:hover {

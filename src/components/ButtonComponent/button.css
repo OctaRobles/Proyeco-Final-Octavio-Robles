@@ -1,6 +1,7 @@
 .btn {
   padding: 5px 15px;
   color: white;
+  font-family: 'Merriweather', serif;
   max-width: 150px;
   background-color: rgb(97, 150, 220);
   border-radius:  4px; 
@@ -10,5 +11,5 @@
 }
 
 .btn:hover{
-  box-shadow: 0px 4px 5px #2c2c2c;
+  box-shadow: 0px 4px 5px #ed00fa;
 }

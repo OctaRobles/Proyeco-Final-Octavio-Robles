@@ -1,4 +1,4 @@
-// Firebase
+
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -15,12 +15,12 @@ import {
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCHmBUcC4YP1uoSw95LIHo9CAx7kRPwn9g",
-  authDomain: "react43305.firebaseapp.com",
-  projectId: "react43305",
-  storageBucket: "react43305.appspot.com",
-  messagingSenderId: "384859310967",
-  appId: "1:384859310967:web:3bad2593d267b8ecc02f72"
+  apiKey: "AIzaSyCtwIBHy7FDVPjd8wciwQ3cq-R1bIQWvjQ",
+  authDomain: "react-coder-610a4.firebaseapp.com",
+  projectId: "react-coder-610a4",
+  storageBucket: "react-coder-610a4.appspot.com",
+  messagingSenderId: "92519822397",
+  appId: "1:92519822397:web:04760cc7699a4e22636654"
 };
 
 
@@ -28,7 +28,7 @@ const appFirebase = initializeApp(firebaseConfig);
 
 const db = getFirestore(appFirebase);
 
-// 2 Implementar async function getData()
+
 
 async function getData() {
   const productsRef = collection(db, "products");
@@ -38,14 +38,9 @@ async function getData() {
     (item) => {
       return { ...item.data(), id: item.id };
     }
-    /* {let productFullData = item.data();
-    productFullData.id = item.id;
-    return productFullData; }*/
   );
   return docsData;
 }
-
-//  3.Implementar getProductData
 async function getProductData(id) {
   const docRef = doc(db, "products", id);
   const docSnapshot = await getDoc(docRef);
@@ -57,10 +52,8 @@ async function getProductData(id) {
   }
 }
 
-// * 4 Implementar getCategoryData
 async function getCategoryData() {
   const productsRef = collection(db, "products");
-  // cambiamos esto
   const q = query(productsRef, where("price", ">=", 200));
   const documentsSnapshot = await getDocs(q);
 
@@ -88,87 +81,62 @@ async function getOrder(id){
 async function _exportProducts(){
   const productos = [
     {
-      title: "Camiseta de fútbol",
+      title: "Dragon Blanco de Ojos Azules",
       id: 1,
-      stock: 0,
-      description: "Camiseta de fútbol de alta calidad",
-      img: "/assets/remera.bmp",
+      stock: 3,
+      img: "/assets/dragon.bmp",
       price: 300,
-      category: "indumentaria",
+      category: "comunes",
     },
     {
-      title: "Zapatillas de running",
+      title: "Mago Oscuro",
       id: 2,
       stock: 8,
-      description: "Zapatillas de running para entrenamiento",
-      img: "/assets/zapatilla.bmp",
-      price: 200,
-      category: "calzado",
+      img: "/assets/mago.bmp",
+      price: 300,
+      category: "comunes",
     },
     {
-      title: "Shorts de baloncesto",
+      title: "Exodia, el Prohibido",
       id: 3,
       stock: 3,
-      description: "Shorts transpirables para baloncesto",
-      img: "/assets/shorts.bmp",
-      price: 150,
-      category: "indumentaria",
+      img: "/assets/exodia.bmp",
+      price: 750,
+      category: "raras",
     },
     {
-      title: "Pelota de tenis",
+      title: "Dragón Metálico de Oscuridad",
       id: 4,
       stock: 2,
-      description: "Pelota de tenis oficial",
-      img: "/assets/pelotatennis.bmp",
-      price: 150,
-      category: "indumentaria",
+      img: "/assets/dragonO.bmp",
+      price: 750,
+      category: "raras",
     },
     {
-      title: "Camiseta de fútbol",
+      title: "Soldado del Brillo Negro",
       id: 5,
-      limit: 5,
-      description: "Camiseta de fútbol de alta calidad",
-      img: "/assets/remera.bmp",
-      price: 50,
-      category: "indumentaria",
+      stock: 5,
+      img: "/assets/soldado.bmp",
+      price: 750,
+      category:"raras",
     },
     {
-      title: "Zapatillas de running",
+      title: "Hada Arcoíris",
       id: 6,
       stock: 8,
-      description: "Zapatillas de running para entrenamiento",
-      img: "/assets/zapatilla.bmp",
-      price: 700,
-      category: "calzado",
+      img: "/assets/hada.bmp",
+      price: 1000,
+      category:"muy-raras",
     },
     {
-      title: "Shorts de baloncesto",
+      title: "Cabeza Exodia",
       id: 7,
       stock: 3,
-      description: "Shorts transpirables para baloncesto",
-      img: "/assets/shorts.bmp",
-      price: 250,
-      category: "indumentaria",
-    },
-    {
-      title: "Pelota de tenis",
-      id: 8,
-      stock: 2,
-      description: "Pelota de tenis oficial",
-      img: "/assets/pelotatennis.bmp",
-      price: 350,
-      category: "indumentaria",
+      img: "/assets/cabezaE.bmp",
+      price: 1000,
+      category:"muy-raras",
     },
   ];
-
-  // for ... of
-  // productos.forEach( item => {})
- /*  for(let item of productos){
-    console.log(item)
-    const docRef = doc(db, "products", String(item.id))
-    const docCreated = await setDoc(docRef, item);
-    console.log("Doc created with id:", docCreated.id)
-  } */
 
   for(let item of productos){   
     const collectionRef = collection(db, "products")
@@ -181,78 +149,64 @@ async function _exportProducts(){
 async function _exportProductsWithBatch(){
   const productos = [
     {
-      title: "Camiseta de fútbol",
+      title: "Dragon Blanco de Ojos Azules",
       id: 1,
-      stock: 0,
-      description: "Camiseta de fútbol de alta calidad",
-      img: "/assets/remera.bmp",
+      stock: 3,
+      img: "/assets/dragon.bmp",
       price: 300,
-      category: "indumentaria",
+      category: "comunes",
     },
     {
-      title: "Zapatillas de running",
+      title: "Mago Oscuro",
       id: 2,
       stock: 8,
-      description: "Zapatillas de running para entrenamiento",
-      img: "/assets/zapatilla.bmp",
+      img: "/assets/mago.bmp",
       price: 200,
-      category: "calzado",
+      category: "comunes",
     },
     {
-      title: "Shorts de baloncesto",
+      title: "Exodia, el Prohibido",
       id: 3,
       stock: 3,
-      description: "Shorts transpirables para baloncesto",
-      img: "/assets/shorts.bmp",
+      img: "/assets/exodia.bmp",
       price: 150,
-      category: "indumentaria",
+      category: "raras",
     },
     {
-      title: "Pelota de tenis",
+      title: "Dragón Metálico de Oscuridad",
       id: 4,
       stock: 2,
-      description: "Pelota de tenis oficial",
-      img: "/assets/pelotatennis.bmp",
+      img: "/assets/dragonO.bmp",
       price: 150,
-      category: "indumentaria",
+      category: "raras",
     },
     {
-      title: "Camiseta de fútbol",
+      title: "Soldado del Brillo Negro",
       id: 5,
-      limit: 5,
-      description: "Camiseta de fútbol de alta calidad",
-      img: "/assets/remera.bmp",
+      stock: 5,
+      img: "/assets/soldado.bmp",
       price: 50,
-      category: "indumentaria",
+      category:"raras",
     },
     {
-      title: "Zapatillas de running",
+      title: "Hada Arcoíris",
       id: 6,
       stock: 8,
-      description: "Zapatillas de running para entrenamiento",
-      img: "/assets/zapatilla.bmp",
+      img: "/assets/hada.bmp",
       price: 700,
-      category: "calzado",
+      category:"muy-raras",
     },
     {
-      title: "Shorts de baloncesto",
+      title: "Cabeza Exodia",
       id: 7,
       stock: 3,
-      description: "Shorts transpirables para baloncesto",
-      img: "/assets/shorts.bmp",
+      img: "/assets/cabezaE.bmp",
       price: 250,
-      category: "indumentaria",
-    },
-    {
-      title: "Pelota de tenis",
-      id: 8,
-      stock: 2,
-      description: "Pelota de tenis oficial",
-      img: "/assets/pelotatennis.bmp",
-      price: 350,
-      category: "indumentaria",
+      category:"muy-raras",
     },
   ];
+
+
 
   const batch = writeBatch(db); 
 

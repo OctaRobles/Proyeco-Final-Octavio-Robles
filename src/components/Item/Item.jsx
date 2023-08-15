@@ -3,7 +3,7 @@ import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import "./item.css";
 
 function Item(props) {
-  const { id, title, img, price, description } = props;
+  const { id, title, img, price } = props;
 
   return (
     <div className="item-card">
@@ -15,10 +15,10 @@ function Item(props) {
       </div>
       <div className="item-card_detail">
         <h4>$ {price}</h4>
-        <small>{description}</small>
+        
       </div>
       <Link to={`/product/${id}`}>
-        <ButtonComponent colorFondo="purple">Ver Producto</ButtonComponent>
+        <ButtonComponent fotnSize="large" colorFondo="black">Ver Producto</ButtonComponent>
       </Link>
     </div>
   );

@@ -25,7 +25,7 @@ function ItemListContainer() {
   }, [categoryId]);
 
   if (isLoading) {
-    return <Ring size={100} lineWeight={5} speed={1} color="blue" />;
+    return <Ring size={200} lineWeight={3} speed={2} color="violet" />;
   } else {
     return products.length === 0 ? (
       <p>No hay productos disponibles para esa consulta.</p>

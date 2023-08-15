@@ -8,22 +8,22 @@ export default function NavBar() {
       <ul className="nav-menu">
         <h2>
           <li>
-            <Link to="/">miTienda</Link>
+            <Link to="/">Tiendita Yu-Gi-Oh!</Link>
           </li>
         </h2>
         <li className="nav-item">
-          <Link className="nav-link" to="/category/indumentaria">
-            Indumentaria
+          <Link className="nav-link" to="/category/comun">
+            Comun
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/category/cursos-de-react" className="nav-link">
-            No existe
+          <Link to="/category/rara" className="nav-link">
+            Rara
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/category/calzado">
-            Zapatillas
+          <Link className="nav-link" to="/category/muy rara">
+            Muy rara
           </Link>
         </li>
         <li className="nav-item">
